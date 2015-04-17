@@ -13,9 +13,11 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+<link rel="stylesheet" type="text/css" href="stylesheets/magnific-popup.css">
+
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body data-spy="scroll" data-target="#bs-example-navbar-collapse-1">
 
 <header>
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -35,6 +37,12 @@
           <li><a href="#experience">Experience</a></li>
           <li><a href="#recommendations">Recommendations</a></li>
           <li><a href="#projects">Projects</a></li>
+              <!-- Button trigger modal -->
+          <li>
+            <a type="button" class="" data-toggle="modal" data-target="#myModal">
+              Contact me
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -50,7 +58,7 @@
         <li><a href="" target="_blank"><i class="fa fa-pinterest"></i></a></li>
         <li><a href="" target="_blank"><i class="fa fa-wordpress"></i></a></li>
       </ul>
-      <div class="profile-pict">
+      <div class="profile-pict" id="profile-picture">
         <img src="images/profile-pict.jpg" class="picture img-responsive">
       </div>
   </div>
@@ -190,23 +198,29 @@
 <section id="projects">
   <div class="container">
     <h3 class="section-title">Projects</h3>
-    <div class="col-md-4">
-      <div class="image-gallery">
-        <img src="images/ellen1.jpg" class="img-responsive">
+    <div class="col-md-4 zoom-gallery">
+      <div class="image-gallery gallery-picture">
+        <a href="images/ellen1.jpg">
+          <img src="images/ellen1.jpg" class="img-responsive">
+        </a>
         <div class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="image-gallery">
-        <img src="images/ellen1.jpg" class="img-responsive">
+    <div class="col-md-4 zoom-gallery">
+      <div class="image-gallery gallery-picture">
+        <a href="images/ellen1.jpg">
+          <img src="images/ellen1.jpg" class="img-responsive">
+        </a>
         <div class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="image-gallery">
-        <img src="images/ellen1.jpg" class="img-responsive">
+    <div class="col-md-4 zoom-gallery">
+      <div class="image-gallery gallery-picture">
+        <a href="images/ellen1.jpg">
+          <img src="images/ellen1.jpg" class="img-responsive">
+        </a>
         <div class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</div>
       </div>
@@ -214,5 +228,84 @@
   </div>
 </section>
 
+<section id="date">
+  <span id="date_heure"></span>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contact me</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#" id="contactForm">
+          <div  class="form-group">
+              <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+              <input type="hidden" name="redirect_to" value="">
+              <!-- all your input fields here.... -->
+              <input type="text" name="name" required="" placeholder="Cylia Chamade" class="form-control" >
+              <input type="mail" name="email" required="" placeholder="cylia.chamade@cats-eye.com" class="form-control" >
+              <textarea type="textarea" name="message" required="" placeholder="Hello, We'd like to create a website to sell our artworks. Could you do it? Thanks, Cat's Eye" class="form-control" ></textarea>
+              <button class="btn btn-default sendButton" type="submit">Send</button>
+              <!-- onclick="_gaq.push(['_trackEvent', 'Contact_footer', 'Send']);" -->
+            </form>
+          </div>
+                  
+                <button onclick="_gaq.push(['_trackEvent', 'Contact_footer', 'Send']);">Test Google Analytics</button>
+
+        <div class="col-md-12" id="formSuccessMessage" style="display:none;">
+            Thanks!
+        </div>
+        <div class="col-md-12" id="formErrorMessage" style="display:none;">
+            There has been an error sending your message.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<div id="preloader">
+  <p id="status-message">La page est en cours de chargement. Merci de votre patience !</p>
+  <div id="status"><div class="spinner"></div></div>
+</div>
+
+
+<!-- SCRIPTS -->
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="scripts/jquery.magnific-popup.min.js"></script>
+
+<script type="text/javascript" src="main.js"></script>
+
+<script>
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-58377821-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+
+<script type="text/javascript">
+  date_heure('date_heure');
+</script>
+
+<!-- END SCRIPTS -->
 </body>
 </html>

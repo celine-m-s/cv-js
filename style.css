@@ -4,12 +4,13 @@
 
 body { 
   padding-top: 50px; 
+  overflow: auto;
 }
 
 header {
   background: url(images/blur-background.jpg) no-repeat;
   background-size: cover;
-  padding: 50px;
+  padding: 50px 0;
   color: white;
   text-align: center;
 }
@@ -88,5 +89,84 @@ section {
   padding: 10px;
   position: absolute;
   bottom: 0;
+  display: none;
 }
 
+
+/* ==========================================================================
+   Pre-Loader
+   ========================================================================== */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    z-index: 9999999;
+}
+#status {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -18px 0 0 -18px;
+}
+
+#status-message {
+  width: auto;
+  height: auto;
+  left: 41%;
+  top: 44%;
+  position: absolute;
+  color: white;
+  margin: -18px 0 0 -18px;
+}
+.spinner {
+    height: 36px;
+    width: 36px;
+    position: relative;
+    -webkit-animation: rotation .8s infinite linear;
+    -moz-animation: rotation .8s infinite linear;
+    -o-animation: rotation .8s infinite linear;
+    animation: rotation .8s infinite linear;
+    border-left: 3px solid rgba(238,78,68,.15);
+    border-right: 3px solid rgba(238,78,68,.15);
+    border-bottom: 3px solid rgba(238,78,68,.15);
+    border-top: 3px solid rgba(238,78,68,.8);
+    border-radius: 100%;
+}
+@-webkit-keyframes rotation { 
+  from {
+      -webkit-transform: rotate(0deg)
+  }
+  to {
+      -webkit-transform: rotate(359deg)
+  }
+}
+@-moz-keyframes rotation { 
+  from {
+      -moz-transform: rotate(0deg)
+  }
+  to {
+      -moz-transform: rotate(359deg)
+  }
+}
+@-o-keyframes rotation { 
+  from {
+      -o-transform: rotate(0deg)
+  }
+  to {
+      -o-transform: rotate(359deg)
+  }
+}
+@keyframes rotation { 
+  from {
+      transform: rotate(0deg)
+  }
+  to {
+      transform: rotate(359deg)
+  }
+}
